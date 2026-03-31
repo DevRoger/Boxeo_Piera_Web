@@ -1,0 +1,352 @@
+/* ================= VARIABLES (REGLA 70/20/10) ================= */
+:root {
+  /* 70% - Colores Dominantes (Fondos oscuros y agresivos) */
+  --bg-dark: #121212;
+  --bg-darker: #0a0a0a;
+
+  /* 20% - Colores Secundarios (Textos, fondos de respiro) */
+  --text-light: #f5f5f5;
+  --bg-light: #e0e0e0;
+  --text-dark: #1a1a1a;
+
+  /* 10% - Color de Acento (Rojo logo para CTAs y Hover) */
+  --rojo-boxeo: #d32f2f;
+  --rojo-hover: #b71c1c;
+
+  /* Tipografías */
+  --font-titulos: "Oswald", sans-serif;
+  --font-textos: "Roboto", sans-serif;
+}
+
+/* ================= RESET Y AJUSTES GLOBALES ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en el menú */
+}
+
+body {
+  font-family: var(--font-textos);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-titulos);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+/* ================= CONTENEDORES GLOBALES ================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.seccion-oscura {
+  background-color: var(--bg-dark);
+  padding: 80px 0;
+}
+
+.seccion-clara {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  padding: 80px 0;
+}
+
+/* ================= BOTONES (ACENTO 10%) ================= */
+.btn-cta,
+.btn-redes {
+  display: inline-block;
+  background-color: var(--rojo-boxeo);
+  color: #fff;
+  padding: 15px 30px;
+  font-family: var(--font-titulos);
+  font-size: 1.2rem;
+  border-radius: 4px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-cta:hover,
+.btn-redes:hover {
+  background-color: var(--rojo-hover);
+  transform: scale(1.05);
+}
+
+/* ================= CABECERA Y NAVEGACIÓN ================= */
+header {
+  background-color: var(--bg-darker);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+  height: 60px;
+  border-radius: 50%; /* Si el logo tiene fondo blanco, esto lo hace circular */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  font-family: var(--font-titulos);
+  font-size: 1.1rem;
+}
+
+.nav-links li a:hover {
+  color: var(--rojo-boxeo);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* ================= SECCIÓN HERO (INICIO) ================= */
+.hero {
+  height: 100vh;
+  margin-top: 80px; /* Compensa la altura del header fijo */
+  /* Aquí pondrás tu imagen de stock de boxeo */
+  background:
+    linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.9)),
+    url("assets/img/hero-stock.jpg") center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: var(--text-light);
+}
+
+/* ================= SECCIÓN SOBRE MÍ ================= */
+.flex-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.imagen-entrenador {
+  flex: 1;
+}
+
+.imagen-entrenador img {
+  width: 100%;
+  border-radius: 8px;
+  border-bottom: 5px solid var(--rojo-boxeo);
+}
+
+.texto-entrenador {
+  flex: 1;
+}
+
+.texto-entrenador h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--rojo-boxeo);
+}
+
+.texto-entrenador p {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+/* ================= SECCIÓN HORARIOS ================= */
+#horarios h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.tabla-horarios {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tabla-horarios th,
+.tabla-horarios td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.tabla-horarios th {
+  background-color: var(--bg-darker);
+  color: var(--text-light);
+  font-family: var(--font-titulos);
+  font-size: 1.2rem;
+}
+
+.tabla-horarios tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tabla-horarios tbody tr:hover {
+  background-color: #ffebee; /* Un toque rojizo muy suave al pasar el ratón */
+}
+
+/* ================= SECCIÓN EQUIPACIÓN ================= */
+#equipacion {
+  text-align: center;
+}
+
+#equipacion h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.nota-equipacion {
+  color: #aaa;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+.grid-equipacion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.item-equipacion {
+  background-color: var(--bg-darker);
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.item-equipacion:hover {
+  transform: translateY(-10px);
+}
+
+.item-equipacion img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover; /* Para que las imágenes queden uniformes */
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.item-equipacion h3 {
+  color: var(--text-light);
+}
+
+/* ================= FOOTER ================= */
+footer {
+  border-top: 2px solid var(--rojo-boxeo);
+  padding-bottom: 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.info-contacto h2 {
+  color: var(--rojo-boxeo);
+  margin-bottom: 15px;
+}
+
+.redes-sociales {
+  display: flex;
+  gap: 15px;
+}
+
+.copyright {
+  text-align: center;
+  color: #777;
+  font-size: 0.9rem;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+}
+
+/* ================= RESPONSIVE (MÓVILES Y TABLETS) ================= */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Mostramos el botón hamburguesa */
+  }
+
+  .nav-links {
+    display: none; /* Ocultamos el menú normal */
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-darker);
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex; /* Clase que añadiremos con JS para mostrar el menú */
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .flex-container {
+    flex-direction: column; /* Apila imagen y texto en Sobre Mí */
+  }
+
+  .tabla-horarios {
+    font-size: 0.8rem;
+  }
+
+  .tabla-horarios th,
+  .tabla-horarios td {
+    padding: 8px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+}
