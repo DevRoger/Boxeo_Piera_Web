@@ -1,28 +1,45 @@
-// Seleccionamos los elementos del DOM que vamos a utilizar
+// Seleccionamos los elementos del DOM
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 const enlacesMenu = document.querySelectorAll(".nav-links li a");
 
-// 1. Abrir y cerrar el menú móvil al hacer clic en el botón "hamburguesa"
+// Función centralizada para abrir/cerrar el menú
+function toggleMobileMenu() {
+  navLinks.classList.toggle("active"); // Abre/cierra el menú
+  menuToggle.classList.toggle("open"); // Activa/desactiva la animación del botón (X)
+}
+
+// Función centralizada para CERRAR forzosamente el menú
+function closeMobileMenu() {
+  navLinks.classList.remove("active");
+  menuToggle.classList.remove("open");
+}
+
+// 1. Abrir/cerrar menú al hacer clic en el botón
 menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
+  toggleMobileMenu();
 });
 
-// 2. Cerrar el menú automáticamente cuando se hace clic en un enlace (solo afecta en móvil)
+// 2. Cerrar automáticamente al hacer clic en un enlace del menú
 enlacesMenu.forEach((enlace) => {
   enlace.addEventListener("click", () => {
-    navLinks.classList.remove("active");
+    closeMobileMenu();
   });
 });
 
-// Opcional: Cambiar el fondo del header al hacer scroll (para que destaque más al bajar)
-window.addEventListener("scroll", () => {
-  const header = document.querySelector("header");
-  if (window.scrollY > 50) {
-    header.style.backgroundColor = "#0a0a0a"; // Fondo más oscuro
-    header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.8)";
-  } else {
-    header.style.backgroundColor = "#121212"; // Fondo original
-    header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.5)";
+// 3. Cerrar si se hace clic fuera del menú abierto
+// Escuchamos clics en todo el documento
+document.addEventListener("click", (evento) => {
+  // Verificamos si el menú móvil está actualmente abierto
+  const isMenuOpen = navLinks.classList.contains("active");
+
+  // Verificamos si el clic ocurrió dentro del menú o dentro del botón toggle
+  // .closest() busca si el elemento clickeado o sus padres tienen esa clase
+  const clicInsideMenu = evento.target.closest(".nav-links");
+  const clicInsideToggle = evento.target.closest(".menu-toggle");
+
+  // Si el menú está abierto Y el clic NO fue dentro del menú Y NO fue en el botón...
+  if (isMenuOpen && !clicInsideMenu && !clicInsideToggle) {
+    closeMobileMenu();
   }
 });

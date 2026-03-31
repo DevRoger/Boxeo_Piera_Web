@@ -27,6 +27,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -71,39 +72,37 @@ a {
 /* ================= BOTONES (ACENTO 10%) ================= */
 .redes-sociales {
   display: flex;
-  gap: 20px; /* Un poco más de separación entre los círculos */
+  gap: 20px;
 }
 
 .link-redes {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px; /* Ancho del círculo */
-  height: 50px; /* Alto del círculo */
-  background-color: #1a1a1a; /* Fondo gris oscuro, resalta sutilmente sobre el fondo negro */
-  border-radius: 50%; /* Esto hace que sea un círculo perfecto */
-  color: var(--text-light); /* Color del icono */
-  transition: all 0.3s ease; /* Transición suave para todos los efectos */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra para que flote un poco */
+  width: 50px;
+  height: 50px;
+  background-color: #1a1a1a;
+  border-radius: 50%;
+  color: var(--text-light);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* Controlamos el tamaño del icono SVG dentro del círculo */
 .link-redes svg {
   width: 24px;
   height: 24px;
   transition: transform 0.3s ease;
 }
 
-/* Efecto al pasar el ratón (Hover) */
 .link-redes:hover {
-  background-color: var(--rojo-boxeo); /* El círculo se rellena de rojo */
-  color: #ffffff; /* Aseguramos que el icono sea blanco puro */
-  transform: translateY(-5px); /* El botón da un saltito hacia arriba */
-  box-shadow: 0 8px 15px rgba(211, 47, 47, 0.4); /* La sombra se vuelve roja y más grande */
+  background-color: var(--rojo-boxeo);
+  color: #ffffff;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(211, 47, 47, 0.4);
 }
 
 .link-redes:hover svg {
-  transform: scale(1.15); /* El icono crece un poco dentro del círculo rojo */
+  transform: scale(1.15);
 }
 
 /* ================= CABECERA Y NAVEGACIÓN ================= */
@@ -142,12 +141,14 @@ header {
 }
 
 .menu-toggle {
-  display: none;
+  display: block;
+  width: 30px;
+  height: 20px;
+  position: relative;
   background: none;
   border: none;
-  color: var(--text-light);
-  font-size: 2rem;
   cursor: pointer;
+  z-index: 1001;
 }
 
 /* ================= BOTONES (ACENTO 10%) ================= */
@@ -171,7 +172,26 @@ header {
 
 .btn-cta:hover {
   background-color: var(--rojo-hover);
-  transform: translateY(-3px); /* Efecto de pulsación */
+  transform: translateY(-3px);
+}
+
+.btn-secundario {
+  background-color: transparent;
+  color: var(--rojo-boxeo);
+  border: 2px solid var(--rojo-boxeo);
+  box-shadow: none;
+}
+
+.btn-secundario:hover {
+  background-color: var(--rojo-boxeo);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(211, 47, 47, 0.4);
+}
+
+.btn-sobre-mi {
+  margin-top: 15px;
+  display: inline-block;
 }
 
 /* ================= SECCIÓN HERO (INICIO) ================= */
@@ -222,45 +242,36 @@ header {
 
 /* ================= LOGO GIGANTE EN INICIO ================= */
 .logo-gigante {
-  width: 250px; /* Tamaño imponente */
+  width: 250px;
   border-radius: 50%;
-  display: block; /* Centrado dentro de .logo-wrap */
-  margin: 0 auto; /* Centrado horizontal */
+  display: block;
+  margin: 0 auto;
   position: relative;
   z-index: 2;
   animation: flotar 4s ease-in-out infinite;
 }
 
 .logo-wrap {
-  display: inline-block; /* Ajusta el tamaño al logo */
-  position: relative; /* Necesario para posicionar el efecto detrás */
-  margin-bottom: 20px; /* Mantiene el espacio con el texto de abajo */
+  display: inline-block;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .logo-wrap::after {
   content: "";
   position: absolute;
-  /* Centrado perfecto detrás del logo */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  /* Tamaño del efecto: Un poco más grande que el logo para que asome */
   width: 140px;
   height: 140px;
-  border-radius: 50%; /* Es un círculo */
-
-  /* El Color Rojo de Acento (puedes subir la opacidad si quieres más intensidad) */
+  border-radius: 50%;
   background-color: rgba(211, 47, 47, 0.7);
-
-  /* LA MAGIA DEL DIFUMINADO: Crea el efecto aura */
   filter: blur(40px);
-
-  z-index: 1; /* Se coloca detrás de la imagen del logo */
-  pointer-events: none; /* Para que no interfiera si alguien hace clic */
+  z-index: 1;
+  pointer-events: none;
 }
 
-/* Animación sutil para que el logo parezca "vivo" */
 @keyframes flotar {
   0% {
     transform: translateY(0px);
@@ -350,7 +361,7 @@ header {
   background-color: #ffebee;
 }
 
-/* ================= SECCIÓN EQUIPACIÓN (DISEÑO MEJORADO) ================= */
+/* ================= SECCIÓN EQUIPACIÓN ================= */
 #equipacion {
   text-align: center;
 }
@@ -373,10 +384,10 @@ header {
 }
 
 .item-equipacion {
-  background-color: #ffffff; /* Fondo blanco para la tarjeta entera */
+  background-color: #ffffff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -404,7 +415,7 @@ header {
   aspect-ratio: 1 / 1;
   object-fit: contain;
   transition: transform 0.3s ease;
-  mix-blend-mode: multiply; /* TRUCO: Elimina el fondo blanco de la imagen */
+  mix-blend-mode: multiply;
 }
 
 .item-equipacion:hover .img-container img {
@@ -418,24 +429,24 @@ header {
 }
 
 .info-equipacion h3 {
-  color: var(--text-dark); /* Nombre del item oscuro y principal */
+  color: var(--text-dark);
   font-size: 1.4rem;
   margin-bottom: 5px;
   font-family: var(--font-titulos);
 }
 
 .precio-equipacion {
-  color: #666666; /* Gris, pierde importancia visual */
-  font-family: var(--font-textos); /* Tipografía normal, no de título */
+  color: #666666;
+  font-family: var(--font-textos);
   font-weight: 700;
-  font-size: 1.1rem; /* Más pequeño que el nombre */
+  font-size: 1.1rem;
 }
 
 /* ================= FOOTER ================= */
 footer.seccion-oscura {
   border-top: 2px solid var(--rojo-boxeo);
-  padding-top: 60px; /* Mantenemos un buen espacio arriba */
-  padding-bottom: 20px; /* Reducimos drásticamente el hueco de abajo */
+  padding-top: 60px;
+  padding-bottom: 20px;
 }
 
 .footer-content {
@@ -457,27 +468,27 @@ footer.seccion-oscura {
 
 .copyright {
   text-align: center;
-  color: #777; /* Gris apagado para que no distraiga */
+  color: #777;
   font-size: 0.9rem;
-  border-top: 1px solid #333; /* Línea separadora sutil */
+  border-top: 1px solid #333;
   padding-top: 20px;
   margin-top: 10px;
 }
 
 .creditos-creador {
   margin-top: 5px;
-  font-size: 0.85rem; /* Un pelín más pequeño que el copyright */
-  color: #555; /* Más sutil todavía */
+  font-size: 0.85rem;
+  color: #555;
 }
 
 .creditos-creador a {
-  color: var(--rojo-boxeo); /* Destaca tu nombre con el color de la marca */
+  color: var(--rojo-boxeo);
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .creditos-creador a:hover {
-  color: var(--text-light); /* Se vuelve blanco al pasar el ratón */
+  color: var(--text-light);
   text-decoration: underline;
 }
 
@@ -507,13 +518,11 @@ footer.seccion-oscura {
     max-width: 350px;
     margin: 0 auto;
   }
-  /* 1. Reducimos márgenes interiores para ganar espacio en pantalla */
   .seccion-oscura,
   .seccion-clara {
     padding: 50px 0;
   }
 
-  /* 2. Ajuste del Hero para que el texto grande no se salga de la pantalla */
   .hero-content h1 {
     font-size: 2.5rem;
     line-height: 1.2;
@@ -523,9 +532,36 @@ footer.seccion-oscura {
     padding: 0 15px;
   }
 
-  /* 3. Menú Hamburguesa optimizado (más espacio para tocar con el dedo) */
   .menu-toggle {
     display: block;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .menu-toggle .linea {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--rojo-boxeo);
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle .top {
+    top: 0px;
+  }
+  .menu-toggle .middle {
+    top: 8px;
+  }
+  .menu-toggle .bottom {
+    top: 16px;
   }
   .nav-links {
     display: none;
@@ -537,34 +573,54 @@ footer.seccion-oscura {
     background-color: var(--bg-darker);
     padding: 10px 0;
     text-align: center;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); /* Sombra para separarlo del fondo */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+  }
+  .menu-toggle.open .middle {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+
+  .menu-toggle.open .top {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.open .bottom {
+    transform: translateY(-8px) rotate(-45deg);
   }
   .nav-links.active {
     display: flex;
   }
   .nav-links li {
-    margin: 15px 0; /* Separación para no equivocarse al tocar */
+    margin: 15px 0;
   }
 
-  /* 4. Apilar la sección "Sobre mí" correctamente */
+  .texto-entrenador {
+    text-align: center;
+  }
+
+  .btn-sobre-mi {
+    display: block;
+    width: fit-content;
+    margin: 15px auto 0 auto;
+    max-width: 100%;
+  }
+
   .flex-container {
     flex-direction: column;
     gap: 30px;
   }
 
-  /* 5. Solución de la Tabla: Scroll horizontal táctil */
   .contenedor-tabla {
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* Scroll fluido en iPhone */
-    margin: 0 -20px; /* Expande el área de scroll hasta el borde del teléfono */
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -20px;
     padding: 0 20px;
   }
   .tabla-horarios {
-    min-width: 600px; /* Fuerza el scroll horizontal si la pantalla es estrecha */
+    min-width: 600px;
     font-size: 0.95rem;
   }
 
-  /* 6. Footer centrado */
   .footer-content {
     flex-direction: column;
     text-align: center;
