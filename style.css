@@ -26,7 +26,7 @@
 }
 
 html {
-  scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en el menú */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -69,26 +69,26 @@ a {
 }
 
 /* ================= BOTONES (ACENTO 10%) ================= */
-.btn-cta,
-.btn-redes {
-  display: inline-block;
-  background-color: var(--rojo-boxeo);
-  color: #fff;
-  padding: 15px 30px;
-  font-family: var(--font-titulos);
-  font-size: 1.2rem;
-  border-radius: 4px;
-  transition:
-    background-color 0.3s ease,
-    transform 0.2s ease;
-  border: none;
-  cursor: pointer;
+.link-redes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-.btn-cta:hover,
-.btn-redes:hover {
-  background-color: var(--rojo-hover);
-  transform: scale(1.05);
+.link-redes svg {
+  transition: transform 0.3s ease;
+}
+
+.link-redes:hover {
+  color: var(--rojo-boxeo);
+}
+
+.link-redes:hover svg {
+  transform: scale(1.1);
 }
 
 /* ================= CABECERA Y NAVEGACIÓN ================= */
@@ -108,7 +108,7 @@ header {
 
 .logo {
   height: 60px;
-  border-radius: 50%; /* Si el logo tiene fondo blanco, esto lo hace circular */
+  border-radius: 50%;
 }
 
 .nav-links {
@@ -135,30 +135,127 @@ header {
   cursor: pointer;
 }
 
+/* ================= BOTONES (ACENTO 10%) ================= */
+.btn-cta {
+  display: inline-block;
+  background-color: var(--rojo-boxeo);
+  color: #ffffff;
+  padding: 15px 40px;
+  font-family: var(--font-titulos);
+  font-size: 1.3rem;
+  border-radius: 5px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+.btn-cta:hover {
+  background-color: var(--rojo-hover);
+  transform: translateY(-3px); /* Efecto de pulsación */
+}
+
 /* ================= SECCIÓN HERO (INICIO) ================= */
 .hero {
   height: 100vh;
-  margin-top: 80px; /* Compensa la altura del header fijo */
-  /* Aquí pondrás tu imagen de stock de boxeo */
-  background:
+  margin-top: 80px;
+  position: relative;
+  background-image:
     linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.9)),
-    url("assets/img/hero-stock.jpg") center/cover;
+    url("assets/img/hero1.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to bottom, transparent, var(--bg-dark));
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
 .hero-content h1 {
   font-size: 4rem;
   margin-bottom: 10px;
   color: #fff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .hero-content p {
   font-size: 1.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   color: var(--text-light);
+}
+
+/* ================= LOGO GIGANTE EN INICIO ================= */
+.logo-gigante {
+  width: 250px; /* Tamaño imponente */
+  border-radius: 50%;
+  display: block; /* Centrado dentro de .logo-wrap */
+  margin: 0 auto; /* Centrado horizontal */
+  position: relative;
+  z-index: 2;
+  animation: flotar 4s ease-in-out infinite;
+}
+
+.logo-wrap {
+  display: inline-block; /* Ajusta el tamaño al logo */
+  position: relative; /* Necesario para posicionar el efecto detrás */
+  margin-bottom: 20px; /* Mantiene el espacio con el texto de abajo */
+}
+
+.logo-wrap::after {
+  content: "";
+  position: absolute;
+  /* Centrado perfecto detrás del logo */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* Tamaño del efecto: Un poco más grande que el logo para que asome */
+  width: 140px;
+  height: 140px;
+  border-radius: 50%; /* Es un círculo */
+
+  /* El Color Rojo de Acento (puedes subir la opacidad si quieres más intensidad) */
+  background-color: rgba(211, 47, 47, 0.7);
+
+  /* LA MAGIA DEL DIFUMINADO: Crea el efecto aura */
+  filter: blur(40px);
+
+  z-index: 1; /* Se coloca detrás de la imagen del logo */
+  pointer-events: none; /* Para que no interfiera si alguien hace clic */
+}
+
+/* Animación sutil para que el logo parezca "vivo" */
+@keyframes flotar {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 /* ================= SECCIÓN SOBRE MÍ ================= */
@@ -170,12 +267,21 @@ header {
 
 .imagen-entrenador {
   flex: 1;
+  max-width: 450px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  background-color: var(--bg-darker);
+  border-radius: 8px;
+  overflow: hidden;
+  border-bottom: 5px solid var(--rojo-boxeo);
+  margin: 0 auto;
 }
 
 .imagen-entrenador img {
   width: 100%;
-  border-radius: 8px;
-  border-bottom: 5px solid var(--rojo-boxeo);
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .texto-entrenador {
@@ -226,10 +332,10 @@ header {
 }
 
 .tabla-horarios tbody tr:hover {
-  background-color: #ffebee; /* Un toque rojizo muy suave al pasar el ratón */
+  background-color: #ffebee;
 }
 
-/* ================= SECCIÓN EQUIPACIÓN ================= */
+/* ================= SECCIÓN EQUIPACIÓN (DISEÑO MEJORADO) ================= */
 #equipacion {
   text-align: center;
 }
@@ -252,26 +358,62 @@ header {
 }
 
 .item-equipacion {
-  background-color: var(--bg-darker);
-  padding: 20px;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+  background-color: #ffffff; /* Fondo blanco para la tarjeta entera */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .item-equipacion:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-.item-equipacion img {
+.img-container {
   width: 100%;
-  height: 250px;
-  object-fit: cover; /* Para que las imágenes queden uniformes */
-  border-radius: 4px;
-  margin-bottom: 15px;
+  background-color: #ffffff;
+  padding: 30px 20px 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.item-equipacion h3 {
-  color: var(--text-light);
+.img-container img {
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  mix-blend-mode: multiply; /* TRUCO: Elimina el fondo blanco de la imagen */
+}
+
+.item-equipacion:hover .img-container img {
+  transform: scale(1.08);
+}
+
+.info-equipacion {
+  padding: 10px 20px 25px 20px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.info-equipacion h3 {
+  color: var(--text-dark); /* Nombre del item oscuro y principal */
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  font-family: var(--font-titulos);
+}
+
+.precio-equipacion {
+  color: #666666; /* Gris, pierde importancia visual */
+  font-family: var(--font-textos); /* Tipografía normal, no de título */
+  font-weight: 700;
+  font-size: 1.1rem; /* Más pequeño que el nombre */
 }
 
 /* ================= FOOTER ================= */
@@ -305,48 +447,96 @@ footer {
   padding-top: 20px;
 }
 
-/* ================= RESPONSIVE (MÓVILES Y TABLETS) ================= */
+.link-contacto {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link-contacto:hover {
+  color: var(--rojo-boxeo);
+  text-decoration: underline;
+}
+
+/* ================= RESPONSIVE PRO (MÓVILES Y TABLETS) ================= */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block; /* Mostramos el botón hamburguesa */
+  .logo-gigante {
+    width: 180px;
+  }
+  .logo-wrap::after {
+    width: 100px;
+    height: 100px;
+    filter: blur(30px);
+  }
+  .imagen-entrenador {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  /* 1. Reducimos márgenes interiores para ganar espacio en pantalla */
+  .seccion-oscura,
+  .seccion-clara {
+    padding: 50px 0;
   }
 
+  /* 2. Ajuste del Hero para que el texto grande no se salga de la pantalla */
+  .hero-content h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  .hero-content p {
+    font-size: 1.1rem;
+    padding: 0 15px;
+  }
+
+  /* 3. Menú Hamburguesa optimizado (más espacio para tocar con el dedo) */
+  .menu-toggle {
+    display: block;
+  }
   .nav-links {
-    display: none; /* Ocultamos el menú normal */
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 80px;
     left: 0;
     width: 100%;
     background-color: var(--bg-darker);
-    padding: 20px 0;
+    padding: 10px 0;
     text-align: center;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); /* Sombra para separarlo del fondo */
   }
-
   .nav-links.active {
-    display: flex; /* Clase que añadiremos con JS para mostrar el menú */
+    display: flex;
+  }
+  .nav-links li {
+    margin: 15px 0; /* Separación para no equivocarse al tocar */
   }
 
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-
+  /* 4. Apilar la sección "Sobre mí" correctamente */
   .flex-container {
-    flex-direction: column; /* Apila imagen y texto en Sobre Mí */
+    flex-direction: column;
+    gap: 30px;
   }
 
+  /* 5. Solución de la Tabla: Scroll horizontal táctil */
+  .contenedor-tabla {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Scroll fluido en iPhone */
+    margin: 0 -20px; /* Expande el área de scroll hasta el borde del teléfono */
+    padding: 0 20px;
+  }
   .tabla-horarios {
-    font-size: 0.8rem;
+    min-width: 600px; /* Fuerza el scroll horizontal si la pantalla es estrecha */
+    font-size: 0.95rem;
   }
 
-  .tabla-horarios th,
-  .tabla-horarios td {
-    padding: 8px;
-  }
-
+  /* 6. Footer centrado */
   .footer-content {
     flex-direction: column;
     text-align: center;
     gap: 30px;
+  }
+  .redes-sociales {
+    justify-content: center;
   }
 }
