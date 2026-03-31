@@ -432,9 +432,10 @@ header {
 }
 
 /* ================= FOOTER ================= */
-footer {
+footer.seccion-oscura {
   border-top: 2px solid var(--rojo-boxeo);
-  padding-bottom: 20px;
+  padding-top: 60px; /* Mantenemos un buen espacio arriba */
+  padding-bottom: 20px; /* Reducimos drásticamente el hueco de abajo */
 }
 
 .footer-content {
