@@ -69,26 +69,41 @@ a {
 }
 
 /* ================= BOTONES (ACENTO 10%) ================= */
-.link-redes {
+.redes-sociales {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-light);
-  font-size: 1.1rem;
-  font-weight: bold;
-  transition: color 0.3s ease;
+  gap: 20px; /* Un poco más de separación entre los círculos */
 }
 
+.link-redes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px; /* Ancho del círculo */
+  height: 50px; /* Alto del círculo */
+  background-color: #1a1a1a; /* Fondo gris oscuro, resalta sutilmente sobre el fondo negro */
+  border-radius: 50%; /* Esto hace que sea un círculo perfecto */
+  color: var(--text-light); /* Color del icono */
+  transition: all 0.3s ease; /* Transición suave para todos los efectos */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra para que flote un poco */
+}
+
+/* Controlamos el tamaño del icono SVG dentro del círculo */
 .link-redes svg {
+  width: 24px;
+  height: 24px;
   transition: transform 0.3s ease;
 }
 
+/* Efecto al pasar el ratón (Hover) */
 .link-redes:hover {
-  color: var(--rojo-boxeo);
+  background-color: var(--rojo-boxeo); /* El círculo se rellena de rojo */
+  color: #ffffff; /* Aseguramos que el icono sea blanco puro */
+  transform: translateY(-5px); /* El botón da un saltito hacia arriba */
+  box-shadow: 0 8px 15px rgba(211, 47, 47, 0.4); /* La sombra se vuelve roja y más grande */
 }
 
 .link-redes:hover svg {
-  transform: scale(1.1);
+  transform: scale(1.15); /* El icono crece un poco dentro del círculo rojo */
 }
 
 /* ================= CABECERA Y NAVEGACIÓN ================= */
@@ -441,10 +456,28 @@ footer {
 
 .copyright {
   text-align: center;
-  color: #777;
+  color: #777; /* Gris apagado para que no distraiga */
   font-size: 0.9rem;
-  border-top: 1px solid #333;
+  border-top: 1px solid #333; /* Línea separadora sutil */
   padding-top: 20px;
+  margin-top: 10px;
+}
+
+.creditos-creador {
+  margin-top: 5px;
+  font-size: 0.85rem; /* Un pelín más pequeño que el copyright */
+  color: #555; /* Más sutil todavía */
+}
+
+.creditos-creador a {
+  color: var(--rojo-boxeo); /* Destaca tu nombre con el color de la marca */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.creditos-creador a:hover {
+  color: var(--text-light); /* Se vuelve blanco al pasar el ratón */
+  text-decoration: underline;
 }
 
 .link-contacto {
