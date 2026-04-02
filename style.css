@@ -569,33 +569,18 @@ footer.seccion-oscura {
 
 /* ================= RESPONSIVE PRO (MÓVILES Y TABLETS) ================= */
 @media (max-width: 768px) {
-  .logo-gigante {
-    width: 180px;
-  }
-  .logo-wrap::after {
-    width: 100px;
-    height: 100px;
-    filter: blur(30px);
-  }
-  .imagen-entrenador {
-    width: 100%;
-    max-width: 350px;
-    margin: 0 auto;
-  }
+  /* --- 1. AJUSTES GLOBALES Y LAYOUT --- */
   .seccion-oscura,
   .seccion-clara {
     padding: 50px 0;
   }
 
-  .hero-content h1 {
-    font-size: 2.5rem;
-    line-height: 1.2;
-  }
-  .hero-content p {
-    font-size: 1.1rem;
-    padding: 0 15px;
+  .flex-container {
+    flex-direction: column;
+    gap: 30px;
   }
 
+  /* --- 2. CABECERA Y NAVEGACIÓN (HAMBURGUESA) --- */
   .menu-toggle {
     display: block;
     width: 30px;
@@ -621,24 +606,16 @@ footer.seccion-oscura {
   .menu-toggle .top {
     top: 0px;
   }
+
   .menu-toggle .middle {
     top: 8px;
   }
+
   .menu-toggle .bottom {
     top: 16px;
   }
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    background-color: var(--bg-darker);
-    padding: 10px 0;
-    text-align: center;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
-  }
+
+  /* Animación a X al abrir el menú */
   .menu-toggle.open .middle {
     opacity: 0;
     transform: translateX(-15px);
@@ -651,11 +628,55 @@ footer.seccion-oscura {
   .menu-toggle.open .bottom {
     transform: translateY(-8px) rotate(-45deg);
   }
+
+  /* Estilos del menú desplegado */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-darker);
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+  }
+
   .nav-links.active {
     display: flex;
   }
+
   .nav-links li {
     margin: 15px 0;
+  }
+
+  /* --- 3. SECCIÓN INICIO (HERO) --- */
+  .logo-gigante {
+    width: 180px;
+  }
+
+  .logo-wrap::after {
+    width: 100px;
+    height: 100px;
+    filter: blur(30px);
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+    padding: 0 15px;
+  }
+
+  /* --- 4. SECCIÓN SOBRE MÍ --- */
+  .imagen-entrenador {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
   }
 
   .texto-entrenador {
@@ -669,35 +690,67 @@ footer.seccion-oscura {
     max-width: 100%;
   }
 
-  .flex-container {
-    flex-direction: column;
-    gap: 30px;
-  }
-
+  /* --- 5. SECCIÓN HORARIOS (TABLA A TARJETAS) --- */
   .contenedor-tabla {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 0 -20px;
-    padding: 0 20px;
-  }
-  .tabla-horarios {
-    min-width: 600px;
-    font-size: 0.95rem;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
   }
 
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
+  .tabla-horarios,
+  .tabla-horarios tbody,
+  .tabla-horarios tr,
+  .tabla-horarios td {
+    display: block;
+    width: 100%;
   }
-  .redes-sociales {
+
+  .tabla-horarios thead {
+    display: none;
+  }
+
+  .tabla-horarios tr {
+    margin-bottom: 25px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .tabla-horarios td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 12px 20px;
+  }
+
+  .tabla-horarios td:last-child {
+    border-bottom: none;
+  }
+
+  .tabla-horarios td.categoria-label {
+    background-color: var(--bg-darker);
+    color: var(--text-light);
     justify-content: center;
+    font-size: 1.3rem;
+  }
+
+  .tabla-horarios td[data-dia]::before {
+    content: attr(data-dia);
+    font-family: var(--font-titulos);
+    font-weight: bold;
+    color: var(--rojo-boxeo);
+    text-transform: uppercase;
   }
 
   .categoria-label {
     min-width: 100px;
   }
 
+  /* --- 6. SECCIÓN EQUIPACIÓN --- */
   .mobile-hint {
     display: block;
     position: absolute;
@@ -715,5 +768,16 @@ footer.seccion-oscura {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     opacity: 0.9;
     transition: opacity 0.3s ease;
+  }
+
+  /* --- 7. FOOTER Y REDES SOCIALES --- */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .redes-sociales {
+    justify-content: center;
   }
 }
