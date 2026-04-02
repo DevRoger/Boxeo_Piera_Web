@@ -705,6 +705,11 @@ footer.seccion-oscura {
     width: 100%;
   }
 
+  .tabla-horarios {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
   .tabla-horarios thead {
     display: none;
   }
@@ -718,6 +723,7 @@ footer.seccion-oscura {
   }
 
   .tabla-horarios td {
+    background-color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
