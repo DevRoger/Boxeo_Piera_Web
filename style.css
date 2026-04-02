@@ -375,6 +375,8 @@ header {
 /* ================= SECCIÓN EQUIPACIÓN ================= */
 #equipacion {
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 #equipacion h2 {
@@ -404,6 +406,26 @@ header {
     box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
+}
+
+.video-fondo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.contenido-equipacion {
+  position: relative;
+  z-index: 1;
 }
 
 /* ================= HOVER DE TARJETAS (SOLO ORDENADORES) ================= */
@@ -777,6 +799,10 @@ footer.seccion-oscura {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     opacity: 0.9;
     transition: opacity 0.3s ease;
+  }
+
+  .video-fondo {
+    display: none;
   }
 
   /* --- 7. FOOTER Y REDES SOCIALES --- */

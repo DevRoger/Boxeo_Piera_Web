@@ -56,3 +56,13 @@ itemsEquipacion.forEach((item) => {
     });
   }
 });
+
+// ================= CONTROL DE VELOCIDAD DEL VÍDEO =================
+
+const video = document.querySelector(".video-fondo");
+
+if (video) {
+  // 1.0 es velocidad normal. 0.5 es mitad de velocidad.
+  // Un valor de 0.7 suele quedar muy profesional y fluido.
+  video.playbackRate = 0.8;
+}
