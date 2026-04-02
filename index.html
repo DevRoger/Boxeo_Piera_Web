@@ -79,7 +79,7 @@
         <div class="container flex-container">
           <div class="imagen-entrenador">
             <img
-              src="assets/img/david-stock.png"
+              src="assets/img/david-stock.webp"
               alt="Entrenador de Boxeo entrenando"
             />
           </div>
@@ -106,6 +106,7 @@
             <table class="tabla-horarios">
               <thead>
                 <tr>
+                  <th>Categoría</th>
                   <th>Lunes</th>
                   <th>Martes</th>
                   <th>Miércoles</th>
@@ -115,18 +116,35 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>09:00 - 10:30</td>
-                  <td>10:00 - 11:30</td>
-                  <td>09:00 - 10:30</td>
-                  <td>10:00 - 11:30</td>
-                  <td>09:00 - 10:30</td>
+                  <td class="categoria-label">Infantil</td>
+                  <td>-</td>
+                  <td class="hora-destacada">17:30 - 18:30</td>
+                  <td>-</td>
+                  <td class="hora-destacada">17:30 - 18:30</td>
+                  <td>-</td>
                 </tr>
                 <tr>
-                  <td>18:00 - 19:30</td>
-                  <td>19:00 - 20:30</td>
-                  <td>18:00 - 19:30</td>
-                  <td>19:00 - 20:30</td>
-                  <td>17:00 - 18:30</td>
+                  <td class="categoria-label">Adultos</td>
+                  <td class="hora-destacada">
+                    19:00 - 20:00 <br />
+                    20:00 - 21:00
+                  </td>
+                  <td class="hora-destacada">
+                    19:00 - 20:00 <br />
+                    20:00 - 21:00
+                  </td>
+                  <td class="hora-destacada">
+                    19:00 - 20:00 <br />
+                    20:00 - 21:00
+                  </td>
+                  <td class="hora-destacada">
+                    19:00 - 20:00 <br />
+                    20:00 - 21:00
+                  </td>
+                  <td class="hora-destacada">
+                    19:00 - 20:00 <br />
+                    20:00 - 21:00
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -146,34 +164,51 @@
             <div class="item-equipacion">
               <div class="img-container">
                 <img
-                  src="assets/img/guantes.png"
-                  alt="Guantes de Boxeo Piera"
+                  src="assets/img/pantalon.webp"
+                  alt="Pantalón Oficial Boxeo Piera"
+                  class="img-single"
                 />
               </div>
               <div class="info-equipacion">
-                <h3>Guantes Pro 14oz</h3>
-                <p class="precio-equipacion">45,00 €</p>
+                <h3>PANTALÓN OFICIAL</h3>
               </div>
             </div>
+
             <div class="item-equipacion">
-              <div class="img-container">
-                <img src="assets/img/vendas.png" alt="Vendas de Boxeo" />
-              </div>
-              <div class="info-equipacion">
-                <h3>Vendas 4.5m</h3>
-                <p class="precio-equipacion">10,00 €</p>
-              </div>
-            </div>
-            <div class="item-equipacion">
-              <div class="img-container">
+              <div class="img-container hover-effect">
+                <span class="mobile-hint">Toca para ver</span>
                 <img
-                  src="assets/img/sudadera.png"
-                  alt="Camiseta Oficial Piera"
+                  src="assets/img/sudadera_1.webp"
+                  alt="Sudadera Oficial Frontal"
+                  class="img-front"
+                />
+                <img
+                  src="assets/img/sudadera_2.webp"
+                  alt="Sudadera Oficial Trasera"
+                  class="img-back"
                 />
               </div>
               <div class="info-equipacion">
-                <h3>Camiseta Oficial</h3>
-                <p class="precio-equipacion">25,00 €</p>
+                <h3>SUDADERA OFICIAL</h3>
+              </div>
+            </div>
+
+            <div class="item-equipacion">
+              <div class="img-container hover-effect">
+                <span class="mobile-hint">Toca para ver</span>
+                <img
+                  src="assets/img/tirantes_1.webp"
+                  alt="Camiseta Tirantes Frontal"
+                  class="img-front"
+                />
+                <img
+                  src="assets/img/tirantes_2.webp"
+                  alt="Camiseta Tirantes Trasera"
+                  class="img-back"
+                />
+              </div>
+              <div class="info-equipacion">
+                <h3>CAMISETA TIRANTES</h3>
               </div>
             </div>
           </div>

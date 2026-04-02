@@ -43,3 +43,16 @@ document.addEventListener("click", (evento) => {
     closeMobileMenu();
   }
 });
+
+// ================= INTERACCIÓN DE EQUIPACIÓN (TOGGLE) =================
+
+const itemsEquipacion = document.querySelectorAll(".item-equipacion");
+
+itemsEquipacion.forEach((item) => {
+  // Solo aplicamos el toggle si el producto tiene el contenedor con efecto hover
+  if (item.querySelector(".hover-effect")) {
+    item.addEventListener("click", () => {
+      item.classList.toggle("flipped");
+    });
+  }
+});
