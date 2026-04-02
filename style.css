@@ -406,9 +406,12 @@ header {
   flex-direction: column;
 }
 
-.item-equipacion:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+/* ================= HOVER DE TARJETAS (SOLO ORDENADORES) ================= */
+@media (min-width: 769px) {
+  .item-equipacion:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
 }
 
 .img-container {
